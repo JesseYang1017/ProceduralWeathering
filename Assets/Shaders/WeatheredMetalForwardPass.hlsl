@@ -101,6 +101,33 @@ half4 frag(Varyings input) : SV_Target
         _PaintSmoothness,
         _MetalSmoothness,
         wearMask
+    );// Initial rust coverage on exposed metal
+
+    float rustMask = GetRustMask(
+        input.uv,
+        wearMask,
+        _RustAmount
+    );
+
+    // Blend rust color
+    surfaceData.albedo = lerp(
+        surfaceData.albedo,
+        _RustColor.rgb,
+        rustMask
+    );
+
+    // Rust is non-metallic
+    surfaceData.metallic = lerp(
+        surfaceData.metallic,
+        0.0,
+        rustMask
+    );
+
+    // Rust has a rougher surface
+    surfaceData.smoothness = lerp(
+        surfaceData.smoothness,
+        _RustSmoothness,
+        rustMask
     );
     
     // Debug: visualize baked edge mask

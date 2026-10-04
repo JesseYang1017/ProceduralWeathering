@@ -12,6 +12,9 @@ Shader "Custom/WeatheredMetal"
         _MetalSmoothness ("Metal Smoothness", Range(0, 1)) = 0.8
         _EdgeMask ("Edge Mask", 2D) = "black" {}
         _EdgeWearStrength ("Edge Wear Strength", Range(0, 0.5)) = 0.2
+        _RustColor ("Rust Color", Color) = (0.35, 0.12, 0.04, 1)
+        _RustAmount ("Rust Amount", Range(0, 1)) = 0.5
+        _RustSmoothness ("Rust Smoothness", Range(0, 1)) = 0.2
     }
 
     SubShader
@@ -44,6 +47,7 @@ Shader "Custom/WeatheredMetal"
 
             // Reusable procedural functions
             #include "Includes/ProceduralNoise.hlsl"
+            #include "Includes/WeatheringMasks.hlsl"
 
             #include "WeatheredMetalForwardPass.hlsl"
             

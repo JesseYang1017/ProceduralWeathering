@@ -11,6 +11,9 @@ CBUFFER_START(UnityPerMaterial)
     float _PaintSmoothness;
     float _MetalSmoothness;
     float _EdgeWearStrength;
+    float4 _RustColor;
+    float _RustAmount;
+    float _RustSmoothness;
     
 CBUFFER_END
 // Geometry-aware wear mask
