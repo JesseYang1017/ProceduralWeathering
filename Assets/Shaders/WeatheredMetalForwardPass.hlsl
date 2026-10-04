@@ -77,8 +77,8 @@ half4 frag(Varyings input) : SV_Target
         noise + edgeMask * _EdgeWearStrength;
 
     float wearMask = smoothstep(
-        _WearThreshold - 0.05,
-        _WearThreshold + 0.05,
+        _WearThreshold - 0.035,
+        _WearThreshold + 0.035,
         combinedNoise
     );
 

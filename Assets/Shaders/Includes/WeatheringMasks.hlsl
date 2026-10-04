@@ -12,8 +12,8 @@ float GetRustMask(
 
     // Convert noise into rust coverage
     float rustCoverage = smoothstep(
-        1.0 - rustAmount - 0.05,
-        1.0 - rustAmount + 0.05,
+        1.0 - rustAmount - 0.035,
+        1.0 - rustAmount + 0.035,
         rustNoise
     );
 
